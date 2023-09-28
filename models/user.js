@@ -4,6 +4,7 @@ const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
 
 const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const subscriptionList = ["starter", "pro", "business"];
 
 const userSchema = new Schema(
   {
@@ -21,6 +22,11 @@ const userSchema = new Schema(
       type: String,
       minLength: 6,
       required: [true, "Set password for user"],
+    },
+    subscription: {
+      type: String,
+      enum: subscriptionList,
+      default: "starter",
     },
   },
   { versionKey: false, timestamps: true }
