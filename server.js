@@ -4,7 +4,6 @@ const app = require("./app");
 
 const { DB_HOST, PORT } = process.env;
 
-console.log("DB_HOST: ", DB_HOST);
 mongoose
   .connect(DB_HOST)
   .then(() => {
