@@ -24,6 +24,7 @@ const userSchema = new Schema(
       required: [true, "Set password for user"],
     },
     token: { type: String, default: "" },
+    avatarURL: { type: String, required: true },
     subscription: {
       type: String,
       enum: subscriptionList,
